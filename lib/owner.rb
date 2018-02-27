@@ -43,7 +43,7 @@ class Owner
     @pets[:cats] << Cat.new(cat_name)
   end
 
-  def walks_dogs
+  def walk_dogs
     @pets.collect do |species, instances|
       if species == :dogs
         instances.each do |dog|
