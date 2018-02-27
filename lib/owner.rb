@@ -44,6 +44,22 @@ class Owner
   end
 
   def walks_dogs
+    @pets.collect do |species, instances|
+      if species == :dogs
+        instances.each do |dog|
+          dog.mood = "happy"
+        end
+      end 
+    end 
+  end
+
+  describe "#walk_dogs" do
+    it "walks the dogs which makes the dogs' moods happy" do
+      dog = Dog.new("Daisy")
+      owner.pets[:dogs] << dog
+      owner.walk_dogs
+      expect(dog.mood).to eq("happy")
+    end
   end
 
 end
